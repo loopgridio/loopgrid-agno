@@ -1,0 +1,70 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "loopgrid-agno"
+version = "0.1.0"
+description = "Signed, independently verifiable decision evidence for Agno agents and teams using LoopGrid"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+
+authors = [
+  { name = "LoopGrid" }
+]
+
+keywords = [
+  "agno",
+  "agentos",
+  "ai-agents",
+  "ai-governance",
+  "llm-observability",
+  "agent-security",
+  "evidence",
+  "audit",
+  "provenance",
+  "loopgrid"
+]
+
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+
+dependencies = [
+  "agno>=3.0.11,<4",
+  "loopgrid>=0.8,<0.9",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<9",
+  "pytest-asyncio>=0.24,<2",
+  "build>=1.2,<2",
+  "twine>=6,<8",
+]
+
+e2e = [
+  "openai>=1.0",
+]
+
+[project.urls]
+Homepage = "https://loopgrid.io"
+Documentation = "https://loopgrid.io/integrations/agno/"
+Repository = "https://github.com/loopgridio/loopgrid-agno"
+Issues = "https://github.com/loopgridio/loopgrid-agno/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/loopgrid_agno"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+asyncio_mode = "auto"
